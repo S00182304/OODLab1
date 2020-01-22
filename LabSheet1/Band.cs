@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabSheet1
 {
-    public class Band
+    public class Band :IComparable
     {
         public string BandName { get; set; }
         public int BandYearFormed { get; set;}
@@ -24,5 +24,10 @@ namespace LabSheet1
             return string.Format($"{BandName}, {BandYearFormed}, {BandMembers}");
         }
 
+        public int CompareTo(object obj)
+        {
+            Band that = obj as Band;
+            return this.BandName.CompareTo(that.BandName);
+        }
     }
 }
