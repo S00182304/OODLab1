@@ -5,9 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LabSheet1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <ListBox x:Name="LBBandDetails" HorizontalAlignment="Left" Height="100" Margin="598,88,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="LBBandDetails_SelectionChanged"/>
+        <ListBox x:Name="LBBandDetails" HorizontalAlignment="Left" Height="266" Margin="88,127,0,0" VerticalAlignment="Top" Width="222"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="173,82,0,0" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="162" Margin="489,202,0,0" VerticalAlignment="Top" Width="224"/>
+        <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Left" Margin="638,378,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="40" Margin="534,15,0,0" TextWrapping="Wrap" Text="Band Information" VerticalAlignment="Top" Width="179" FontSize="22"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="40" Margin="118,15,0,0" TextWrapping="Wrap" Text="Bands" VerticalAlignment="Top" Width="141" FontSize="22"/>
 
     </Grid>
 </Window>
