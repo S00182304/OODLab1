@@ -18,7 +18,7 @@ namespace LabSheet4
  
     public partial class MainWindow : Window
     {
-        NORTHWNDEntities db = new NORTHWNDEntities();
+        NORTHWNDEntities1 db = new NORTHWNDEntities1();
         public MainWindow()
         {
             InitializeComponent();
@@ -28,8 +28,93 @@ namespace LabSheet4
         {
             //Populates Stock Level ListBox
             lbxStock.ItemsSource = Enum.GetNames(typeof(StockLevel));
+
+            //Populate the suppliers listbox using anonymous type
+            var query1 = from s in db.Suppliers
+                         orderby s.CompanyName
+                         select new
+                         {
+                             SupplierName = s.CompanyName,
+                             SupplierID = s.SupplierID,
+                             Country = s.Country
+                         };
+
+            //Updating the suppliers listbox
+            lbxSuppliers.ItemsSource = query1.ToList();
+
+            //Populate the Countries to the countr
+            var query2 = from s in db.Suppliers
+                         orderby s.Country
+                         select s.Country;
+
+            var countries = query2.ToList();
+
+            //Updates the Countries listbox
+            lbxCountries.ItemsSource = countries.Distinct();
+        }
+
+        private void LbxStock_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var query = from p in db.Products
+                        where p.UnitsInStock < 50
+                        orderby p.ProductName
+                        select p.ProductName;
+
+            //Determining what was selected from that listbox
+            string selected = lbxStock.SelectedItem as string;
+
+            switch(selected)
+            {
+                case "Low":
+                    //Nothing as query is sorted from above
+                    break;
+                case "Normal":
+                    query = from p in db.Products
+                            where p.UnitsInStock >= 50 && p.UnitsInStock <= 100
+                            orderby p.ProductName
+                            select p.ProductName;
+                    break;
+                case "Overstocked":
+                    query = from p in db.Products
+                            where p.UnitsInStock > 100
+                            orderby p.ProductName
+                            select p.ProductName;
+                    break;
+            }
+
+            //Update product list
+            lbxProducts.ItemsSource = query.ToList();
+        }
+
+        private void LbxSuppliers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //using the selected value path
+            int supplierID = Convert.ToInt32(lbxSuppliers.SelectedValue);
+
+            var query = from p in db.Products
+                        where p.SupplierID == supplierID
+                        orderby p.ProductName
+                        select p.ProductName;
+
+            //Update Product List
+            lbxProducts.ItemsSource = query.ToList();
+        }
+
+        private void LbxCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string country = (string)(lbxCountries.SelectedValue);
+
+            var query = from p in db.Products
+                        where p.Supplier.Country == country
+                        orderby p.ProductName
+                        select p.ProductName;
+
+            //Update Product List
+            lbxProducts.ItemsSource = query.ToList();
         }
     }
+
+
 
     //Content for the Stock Level ListBox
     public enum StockLevel { low, Normal, Overstocked };
