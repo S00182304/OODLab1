@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29009.5
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSheet1", "LabSheet1\LabSheet1.csproj", "{3949D368-ADB9-42B0-AFBA-9207EEE7E0CF}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSheet4Part2", "LabSheet4Part2\LabSheet4Part2.csproj", "{1AEA324D-C8DF-46B6-8047-8B3591F2186E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSheet5", "LabSheet5\LabSheet5.csproj", "{AF7720BD-24CC-4C37-9981-7C560F0998B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSheet5CreateDb", "LabSheet5CreateDb\LabSheet5CreateDb.csproj", "{B0070F14-B083-4DDF-856E-A4DF7F78A528}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AF7720BD-24CC-4C37-9981-7C560F0998B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF7720BD-24CC-4C37-9981-7C560F0998B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF7720BD-24CC-4C37-9981-7C560F0998B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0070F14-B083-4DDF-856E-A4DF7F78A528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0070F14-B083-4DDF-856E-A4DF7F78A528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0070F14-B083-4DDF-856E-A4DF7F78A528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0070F14-B083-4DDF-856E-A4DF7F78A528}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
