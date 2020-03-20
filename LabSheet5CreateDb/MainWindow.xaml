@@ -8,6 +8,7 @@
         Title="MainWindow" Height="450" Width="800"
         Loaded="Windows_Loaded">
     <Grid>
-        <DataGrid Name="dgBands" Margin="64,70,244.6,43"/>
+        <ListBox Name="dgBands" Margin="64,70,428.6,43"/>
+        <ListBox Name="dgAlbums" Margin="447,70,45.6,43"/>
     </Grid>
 </Window>

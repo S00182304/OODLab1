@@ -29,8 +29,13 @@ namespace LabSheet5CreateDb
         private void Windows_Loaded(object sender, RoutedEventArgs e)
         {
             var query = from a in db.Bands
-                       select a;
+                        select new
+                        {
+                           a.Name
+                       };
             dgBands.ItemsSource = query.ToList();
+            
+
         }
     }
 }
