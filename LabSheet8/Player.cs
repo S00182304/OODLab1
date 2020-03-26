@@ -15,9 +15,6 @@ namespace LabSheet8
 
         public int TeamID { get; set; }
         public virtual Team Team { get; set; }
-
-
-
     }
 
     public class Team
@@ -25,9 +22,9 @@ namespace LabSheet8
         public int TeamID { get; set; }
         public string TeamName { get; set; }
         public string Location { get; set; }
+        public string HomeGround { get; set; }
 
         public virtual List<Player> Players { get; set; }
-
     }
 
     public class TeamData : DbContext
@@ -35,6 +32,5 @@ namespace LabSheet8
         public TeamData() : base("MyTeamData") { }
         public DbSet<Player> Players { get; set; }
         public DbSet<Team> Teams { get; set; }
-
     }
 }

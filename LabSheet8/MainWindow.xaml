@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LabSheet8"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid x:Name="LstbxTeams">
+        <ListBox x:Name="LbxTeams" Margin="67,53,382.6,53"/>
+        <ListBox x:Name="LbxPlayers" Margin="438,53,37.6,53"/>
     </Grid>
 </Window>
