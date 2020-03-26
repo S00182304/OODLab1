@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LabSheet8;
+using LabSheet8Part2;
 
 namespace DataManagement
 {
@@ -12,6 +13,7 @@ namespace DataManagement
         static void Main(string[] args)
         {
             TeamData db = new TeamData();
+            GameData gd = new GameData();
             //Any network connections that are open this will close them if there is a proplem
             using (db)
             {
@@ -43,6 +45,34 @@ namespace DataManagement
 
             }
 
+            using (gd)
+            {
+                Character c1 = new Character() { CharacterID = 1, CharacterName = "John Marston" };
+                ComputerGame g1 = new ComputerGame() { GameID = 1, Name = "Red Dead Redemption", CharacterID = 1, Character = c1 };
+                ComputerGame g2 = new ComputerGame() { GameID = 2, Name = "Red Dead Redemption 2", CharacterID = 1, Character = c1 };
+
+
+
+                Character c2 = new Character() { CharacterID = 2, CharacterName = "Hurk Drubman" };
+                ComputerGame g3 = new ComputerGame() { GameID = 1, Name = "Far Cry 5", CharacterID = 2, Character = c1 };
+                ComputerGame g4 = new ComputerGame() { GameID = 2, Name = "Far Cry 4", CharacterID = 2, Character = c1 };
+
+                gd.Characters.Add(c1);
+                gd.Characters.Add(c2);
+
+                Console.WriteLine("Added Characters to database");
+
+                gd.Games.Add(g1);
+                gd.Games.Add(g2);
+                gd.Games.Add(g3);
+                gd.Games.Add(g4);
+
+                Console.WriteLine("Added Games to database");
+
+                gd.SaveChanges();
+
+                Console.WriteLine("Saved to Database");
+            }
 
         }
     }
