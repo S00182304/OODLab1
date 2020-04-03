@@ -9,18 +9,21 @@ namespace LabSheet9
 {
     public class BankAccount
     {
-        public double Balance { get; set; }
+        public decimal Balance { get; set; }
+        public decimal OverDraftLimit { get; set; }
 
-        public double DepositMoney(double Deposit)
+        public void DepositMoney(decimal amount)
         {
-            Deposit += Balance;
-            return Balance;
+            Balance += amount;
         }
 
-        public double WithdrawMoney(double Withdraw)
+        public void WithdrawMoney(decimal amount)
         {
-            Withdraw -= Balance;
-            return Balance;
+            decimal availableFunds = Balance + OverDraftLimit;
+            if(amount <= availableFunds)
+            Balance -= amount;
         }
+
+
     }
 }
